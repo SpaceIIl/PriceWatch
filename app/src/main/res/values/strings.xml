@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PriceWatch</string>
+    <string name="error">An error occurred. Please try again.</string>
+    <string name="retry">Retry</string>
+    <string name="refresh">Refresh</string>
+    <string name="watchlist">Watchlist</string>
+</resources>
