@@ -5,11 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.viewModelScope
-import com.example.pricewatch.database.TickerRepository
 import com.example.pricewatch.databinding.DialogInputTickerBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.coroutines.launch
 
 class DialogInputTicker : BottomSheetDialogFragment() {
     private val viewModel: DialogInputViewModel by viewModels()
@@ -26,10 +23,6 @@ class DialogInputTicker : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-            binding.buttonCloseDialog.setOnClickListener {
-                dismiss()
-            }
 
             binding.buttonInput.setOnClickListener {
                 val ticker = binding.textInputTicker.text.toString()

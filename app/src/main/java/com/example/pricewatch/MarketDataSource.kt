@@ -27,14 +27,14 @@ object MarketDataSource {
         retrofit.create(MarketService::class.java)
     }
 
-    suspend fun getCryptoPrice(symbols: String): Response<List<CryptoPriceItem>> {
+/*    suspend fun getCryptoPrice(symbols: String): Response<List<CryptoPriceItem>> {
         return marketService.getCryptoPrice(symbols)
-    }
+    }*/
 
-    suspend fun getCryptoPriceList(symbols: List<String>): List<CryptoPriceItem>{
+/*    suspend fun getCryptoPriceList(symbols: List<String>): List<CryptoPriceItem>{
         return symbols.mapNotNull {
             try {
-                val response =marketService.getCryptoPriceSingle(symbol = it.uppercase()).body()
+                val response = marketService.getCryptoPriceSingle(symbol = it.uppercase()).body()
 
                 response
             }catch (exception: Exception){
@@ -42,7 +42,7 @@ object MarketDataSource {
                 null
             }
         }
-    }
+    }*/
 
     fun getCryptoPriceListFlow(): Flow<List<CryptoPriceItem>> {
         return TickerRepository.getAllTickers()

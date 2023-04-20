@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     style="@style/CardViewStyle"
-    android:layout_marginHorizontal="@dimen/margin_base_x2"
-    android:layout_marginVertical="@dimen/margin_base"
+    android:layout_marginHorizontal="@dimen/margin_base"
+    android:layout_marginVertical="@dimen/margin_base_x0.5"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_base">
+        android:layout_margin="@dimen/margin_base_x2">
 
         <TextView
             android:id="@+id/textTicker"
@@ -21,6 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:textIsSelectable="true"
+            android:textAppearance="@style/TextAppearance.PriceWatch.DisplayMedium"
             tools:text="BTCUSDT" />
 
         <TextView
@@ -30,6 +31,7 @@
             android:layout_marginTop="@dimen/margin_base"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textTicker"
+            android:textAppearance="@style/TextAppearance.PriceWatch.DisplaySmall"
             tools:text="3453" />
 
         <TextView
@@ -38,6 +40,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:textAppearance="@style/TextAppearance.PriceWatch.DisplayMedium"
             tools:text="234820" />
 
         <TextView
@@ -47,6 +50,7 @@
             android:layout_marginTop="@dimen/margin_base"
             app:layout_constraintTop_toBottomOf="@id/textPrice"
             app:layout_constraintEnd_toEndOf="parent"
+            android:textAppearance="@style/TextAppearance.PriceWatch.DisplaySmall"
             tools:text="0.4%" />
 
         <TextView
@@ -57,6 +61,7 @@
             android:layout_marginEnd="@dimen/margin_base"
             app:layout_constraintTop_toBottomOf="@id/textPrice"
             app:layout_constraintEnd_toStartOf="@id/textChangePercent"
+            android:textAppearance="@style/TextAppearance.PriceWatch.DisplaySmall"
             tools:text="3453" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

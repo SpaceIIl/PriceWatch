@@ -84,8 +84,6 @@ class WatchlistFragment : Fragment() {
                     binding.recyclerMyData.post {
                         binding.recyclerMyData.layoutManager?.scrollToPosition(0)
                     }
-
-                    binding.textTest.text = state.tickers.toString()
                 }
             }
         }

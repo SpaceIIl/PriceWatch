@@ -2,8 +2,6 @@ package com.example.pricewatch.watchlist
 
 import androidx.lifecycle.*
 import com.example.pricewatch.MarketDataSource
-import com.example.pricewatch.MarketDataSource.getCryptoPrice
-import com.example.pricewatch.MarketDataSource.getCryptoPriceList
 import com.example.pricewatch.database.TickerRepository
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map

@@ -1,6 +1,8 @@
 package com.example.pricewatch.database
 
 import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.pricewatch.App
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -12,7 +14,13 @@ object TickerRepository {
         App.instance.applicationContext,
         AppDatabase::class.java,
         "app_database"
-    ).build()
+    ).addCallback(object : RoomDatabase.Callback() {
+        override fun onCreate(db: SupportSQLiteDatabase) {
+            super.onCreate(db)
+            // Set default value for symbol field
+            db.execSQL("INSERT INTO ticker (symbol) VALUES ('BTCUSDT'), ('ETHUSDT'), ('BNBUSDT')")
+        }
+    }).build()
 
     private val tickerDao = database.tickerDao()
 

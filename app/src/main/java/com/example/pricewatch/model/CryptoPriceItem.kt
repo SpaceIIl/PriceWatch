@@ -18,7 +18,7 @@ data class CryptoPriceItem(
     @Json(name = "lastId")
     val lastId: Long,
     @Json(name = "lastPrice")
-    val lastPrice: String,
+    val lastPrice: BigDecimal,
     @Json(name = "lowPrice")
     val lowPrice: BigDecimal,
     @Json(name = "openPrice")
@@ -26,15 +26,15 @@ data class CryptoPriceItem(
     @Json(name = "openTime")
     val openTime: Long,
     @Json(name = "priceChange")
-    val priceChange: String,
+    val priceChange: BigDecimal,
     @Json(name = "priceChangePercent")
-    val priceChangePercent: String,
+    val priceChangePercent: BigDecimal,
     @Json(name = "quoteVolume")
     val quoteVolume: BigDecimal,
     @Json(name = "symbol")
     val symbol: String,
     @Json(name = "volume")
-    val volume: String,
+    val volume: BigDecimal,
     @Json(name = "weightedAvgPrice")
     val weightedAvgPrice: String
 )

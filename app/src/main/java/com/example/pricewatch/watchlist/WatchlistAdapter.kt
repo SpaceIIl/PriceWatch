@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.ListAdapter
+import com.example.pricewatch.R
 import com.example.pricewatch.databinding.ItemTickerDetailBinding
 import com.example.pricewatch.model.CryptoPriceItem
 import java.math.BigDecimal
@@ -16,15 +17,15 @@ class WatchlistAdapter (private val clickListener: OnTickerClicked):
     inner class ItemViewHolder(private val binding: ItemTickerDetailBinding) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: CryptoPriceItem) {
             binding.textTicker.text = item.symbol
-            binding.textVolume.text = item.quoteVolume.round().toPlainString()
-            binding.textPrice.text = item.lastPrice
-            binding.textChangePercent.text = item.priceChangePercent
-            binding.textChange.text = item.priceChange
-            binding.root.setOnClickListener { clickListener.onTickerClicked(item) }
+            binding.textVolume.text = binding.root.context.getString(R.string.usd, item.quoteVolume.round(0))
+            binding.textPrice.text = binding.root.context.getString(R.string.usd, item.lastPrice.round())
+            binding.textChangePercent.text = binding.root.context.getString(R.string.percentage, item.priceChangePercent.round())
+            binding.textChange.text = binding.root.context.getString(R.string.usd, item.priceChange.round())
+            //binding.root.setOnClickListener { clickListener.onTickerClicked(item) }
         }
     }
 
-    fun BigDecimal.round() = this.setScale(1, RoundingMode.HALF_UP)
+    fun BigDecimal.round(scale: Int = 2) = this.setScale(scale, RoundingMode.HALF_DOWN)
 
     private class TickerDiffCallback : DiffUtil.ItemCallback<CryptoPriceItem>() {
         override fun areItemsTheSame(oldItem: CryptoPriceItem, newItem: CryptoPriceItem): Boolean =

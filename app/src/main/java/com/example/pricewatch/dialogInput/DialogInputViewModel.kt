@@ -1,7 +1,6 @@
 package com.example.pricewatch.dialogInput
 
 import androidx.lifecycle.*
-import com.example.pricewatch.MarketDataSource.getCryptoPrice
 import com.example.pricewatch.database.TickerRepository
 import com.example.pricewatch.database.Ticker
 import com.example.pricewatch.watchlist.WatchlistScreenState
