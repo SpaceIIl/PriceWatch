@@ -10,6 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pricewatch.dialogInput.DialogInputTicker
 import com.example.pricewatch.R
+import com.example.pricewatch.database.Ticker
+import com.example.pricewatch.database.TickerDao
 import com.example.pricewatch.databinding.FragmentWatchlistBinding
 import kotlinx.coroutines.channels.ticker
 
@@ -53,7 +55,7 @@ class WatchlistFragment : Fragment() {
                 is WatchlistScreenState.Error -> {
                     with(binding) {
                         progressWatchlist.visibility = View.GONE
-                        recyclerMyData.visibility = View.GONE
+                        recyclerMyData.visibility = View.VISIBLE
                         textWatchlist.text = getString(R.string.error)
                         retryButton.visibility = View.VISIBLE
                         retryButton.setOnClickListener {

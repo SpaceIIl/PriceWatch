@@ -16,17 +16,18 @@ class WatchlistAdapter (private val clickListener: OnTickerClicked):
 
     inner class ItemViewHolder(private val binding: ItemTickerDetailBinding) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: CryptoPriceItem) {
-            binding.textTicker.text = item.symbol
-            binding.textVolume.text = binding.root.context.getString(R.string.usd, item.quoteVolume.round(0))
-            binding.textPrice.text = binding.root.context.getString(R.string.usd, item.lastPrice.round())
-            binding.textChangePercent.text = binding.root.context.getString(R.string.percentage, item.priceChangePercent.round())
-            binding.textChange.text = binding.root.context.getString(R.string.usd, item.priceChange.round())
-            //binding.root.setOnClickListener { clickListener.onTickerClicked(item) }
+            with(binding) {
+                textTicker.text = item.symbol
+                textVolume.text = binding.root.context.getString(R.string.usd, item.quoteVolume.round(0))
+                textPrice.text = binding.root.context.getString(R.string.usd, item.lastPrice.round())
+                textChangePercent.text = binding.root.context.getString(R.string.percentage, item.priceChangePercent.round())
+                textChange.text = binding.root.context.getString(R.string.usd, item.priceChange.round())
+                //root.setOnClickListener { clickListener.onTickerClicked(item) }
+            }
         }
     }
 
     fun BigDecimal.round(scale: Int = 2) = this.setScale(scale, RoundingMode.HALF_DOWN)
-
     private class TickerDiffCallback : DiffUtil.ItemCallback<CryptoPriceItem>() {
         override fun areItemsTheSame(oldItem: CryptoPriceItem, newItem: CryptoPriceItem): Boolean =
             oldItem.symbol == newItem.symbol
